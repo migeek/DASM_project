@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+    <h1>{{ box.owner }}'s Device</h1>
+
+    <h3>Contacts</h3>
+    <ul>
+        {% for n in range(contacts|length) %}
+            <li>
+                <label for="contact {{ loop.index }}"></label>
+                <select id="contact {{ loop.index }}">
+                    {% for contact in contacts %}
+                        <option value="user {{ loop.index }}" selected="None">{{ contact.owner }}</option>
+                    {% endfor %}
+                </select>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <div><a href="/PLACEHOLDER">Change Name</a></div>
+
+{% endblock %}

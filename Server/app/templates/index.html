@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+
+    <h1>Welcome, {{ current_user.username }} family!</h1>
+
+    <h3>Your Devices</h3>
+    <ul>
+        {% for box in boxes %}
+            <li><a href="/{{ current_user.id }}/box/{{ box.bid }}">{{ box.owner }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div><a href="/registerbox">Register a new device</a></div>
+    <div><a href="/deletebox">Delete a device</a></div>
+
+{% endblock %}
